@@ -8,8 +8,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  const phoneNumber = "+919876543210";
-  const whatsappNumber = "919876543210";
+  const phoneNumber = "+919691365052";
+  const whatsappNumber = "919691365052";
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -32,13 +32,13 @@ const Header = () => {
         <div className="container flex justify-between items-center">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
-            <span className="hidden sm:inline">Shop No. 12, Main Market, Your City</span>
+            <span className="hidden sm:inline">Ganesh Ward Kareli High School Road, Kareli Main Rd, Kareli, Madhya Pradesh 487221</span>
             <span className="sm:hidden">Your City</span>
           </div>
           <div className="flex items-center gap-4">
             <a href={`tel:${phoneNumber}`} className="flex items-center gap-1 hover:text-accent transition-colors">
               <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">+91 98765 43210</span>
+              <span className="hidden sm:inline">+91 9691365052</span>
             </a>
           </div>
         </div>

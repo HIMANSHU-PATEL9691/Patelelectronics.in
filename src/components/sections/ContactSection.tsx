@@ -2,8 +2,8 @@ import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
-  const phoneNumber = "+919876543210";
-  const whatsappNumber = "919876543210";
+  const phoneNumber = "+919691365052";
+  const whatsappNumber = "919691365052";
 
   return (
     <section id="contact" className="py-16 bg-background">
@@ -71,8 +71,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                  <a href="mailto:info@patelelectronics.in" className="text-accent hover:underline">
-                    info@patelelectronics.in
+                  <a href="mailto:patelhimanshu6006@gmail.com" className="text-accent hover:underline">
+                    patelhimanshu6006@gmail.com
                   </a>
                 </div>
               </div>

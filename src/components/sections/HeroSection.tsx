@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
-  const phoneNumber = "+919876543210";
-  const whatsappNumber = "919876543210";
+  const phoneNumber = "+919691365052";
+  const whatsappNumber = "919691365052";
 
   return (
     <section className="relative min-h-[650px] lg:min-h-[750px] flex items-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5">

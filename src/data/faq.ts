@@ -67,7 +67,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Where is your store located?",
-    answer: "Our store is located at Shop No. 12, Main Market, Your City - 380001. We have ample parking space available nearby.",
+    answer: "Our store is located at Ganesh Ward Kareli High School Road, Kareli Main Rd, Kareli, Madhya Pradesh 487221 - 380001. We have ample parking space available nearby.",
     category: "General",
   },
   {

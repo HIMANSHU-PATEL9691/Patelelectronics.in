@@ -17,7 +17,7 @@ const ProductsPage = () => {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [showFilters, setShowFilters] = useState(false);
 
-  const whatsappNumber = "919876543210";
+  const whatsappNumber = "919691365052";
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {

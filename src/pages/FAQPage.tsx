@@ -15,7 +15,7 @@ import { useState } from "react";
 
 const FAQPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const whatsappNumber = "919876543210";
+  const whatsappNumber = "919691365052";
 
   const filteredFaqs = selectedCategory === "all" 
     ? faqs 
@@ -118,7 +118,7 @@ const FAQPage = () => {
                     </a>
                   </Button>
                   <Button variant="heroOutline" size="lg" asChild>
-                    <a href="tel:+919876543210">
+                    <a href="tel:+919691365052">
                       <Phone className="w-5 h-5" />
                       Call Us
                     </a>

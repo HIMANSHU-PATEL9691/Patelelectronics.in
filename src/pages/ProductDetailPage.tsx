@@ -9,8 +9,8 @@ import { getProductById, products } from "@/data/products";
 const ProductDetailPage = () => {
   const { id } = useParams();
   const product = getProductById(Number(id));
-  const whatsappNumber = "919876543210";
-  const phoneNumber = "+919876543210";
+  const whatsappNumber = "919691365052";
+  const phoneNumber = "+919691365052";
 
   if (!product) {
     return (

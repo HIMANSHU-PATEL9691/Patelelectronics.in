@@ -2,8 +2,8 @@ import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const phoneNumber = "+919876543210";
-  const whatsappNumber = "919876543210";
+  const phoneNumber = "+919691365052";
+  const whatsappNumber = "919691365052";
 
   return (
     <footer className="bg-card border-t border-border">
@@ -53,11 +53,11 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                <span className="text-muted-foreground">Shop No. 12, Main Market, Your City - 380001</span>
+                <span className="text-muted-foreground">Ganesh Ward Kareli High School Road, Kareli Main Rd, Kareli, Madhya Pradesh 487221 - 380001</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent shrink-0" />
-                <a href={`tel:${phoneNumber}`} className="text-muted-foreground hover:text-accent transition-colors">+91 98765 43210</a>
+                <a href={`tel:${phoneNumber}`} className="text-muted-foreground hover:text-accent transition-colors">+91 9691365052</a>
               </li>
               <li className="flex items-center gap-3">
                 <MessageCircle className="w-5 h-5 text-accent shrink-0" />
@@ -65,7 +65,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent shrink-0" />
-                <a href="mailto:info@patelelectronics.in" className="text-muted-foreground hover:text-accent transition-colors">info@patelelectronics.in</a>
+                <a href="mailto:patelhimanshu6006@gmail.com" className="text-muted-foreground hover:text-accent transition-colors">patelhimanshu6006@gmail.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-accent shrink-0" />

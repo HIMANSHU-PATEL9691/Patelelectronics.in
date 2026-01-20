@@ -59,7 +59,7 @@ const products = [
 ];
 
 const ProductsSection = () => {
-  const whatsappNumber = "919876543210";
+  const whatsappNumber = "919691365052";
 
   const handleWhatsAppEnquiry = (productName: string) => {
     const message = encodeURIComponent(`Hello Patel Electronics, I am interested in ${productName}. Please share details and best price.`);

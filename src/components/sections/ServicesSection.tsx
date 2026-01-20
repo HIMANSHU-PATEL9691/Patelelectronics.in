@@ -20,7 +20,7 @@ const features = [
 ];
 
 const ServicesSection = () => {
-  const whatsappNumber = "919876543210";
+  const whatsappNumber = "919691365052";
   const message = encodeURIComponent("Hello Patel Electronics, I want to book a repair service for my device.");
 
   return (

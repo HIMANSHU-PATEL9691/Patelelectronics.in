@@ -16,7 +16,7 @@ const iconMap: { [key: string]: any } = {
 };
 
 const ServicesPage = () => {
-  const whatsappNumber = "919876543210";
+  const whatsappNumber = "919691365052";
 
   const handleBookService = (serviceName: string) => {
     const message = encodeURIComponent(`Hello Patel Electronics, I want to book ${serviceName} service. Please assist.`);
@@ -145,8 +145,8 @@ const ServicesPage = () => {
                 Book on WhatsApp
               </Button>
               <Button variant="heroOutline" size="xl" asChild>
-                <a href="tel:+919876543210">
-                  Call: +91 98765 43210
+                <a href="tel:+919691365052">
+                  Call: +91 9691365052
                 </a>
               </Button>
             </div>
