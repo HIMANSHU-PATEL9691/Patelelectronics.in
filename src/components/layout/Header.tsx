@@ -59,7 +59,7 @@ const Header = () => {
       ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border"
     >
-      {/* Top Bar */}
+      {/* 🔹 Top Bar */}
       <div className="bg-primary text-primary-foreground py-2 text-sm">
         <div className="container flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -79,25 +79,29 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main Header */}
+      {/* 🔹 Main Header */}
       <div className="container py-3">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center">
-              <span className="text-xl font-bold text-primary-foreground">
-                PE
-              </span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-lg font-bold">Patel Electronics</h1>
-              <p className="text-xs text-muted-foreground">
-                Your Trusted Partner
-              </p>
-            </div>
-          </Link>
+          
+          {/* ✅ Logo with Image */}
+         <Link to="/" className="flex items-center gap-3">
+  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-white flex items-center justify-center">
+    <img
+      src="/favicon.ico"
+      alt="Patel Electronics Logo"
+      className="w-full h-full object-contain"
+    />
+  </div>
 
-          {/* Desktop Navigation */}
+  <div className="hidden sm:block">
+    <h1 className="text-lg font-bold">Patel Electronics</h1>
+    <p className="text-xs text-muted-foreground">
+      Your Trusted Partner
+    </p>
+  </div>
+</Link>
+
+          {/* 🔹 Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -114,7 +118,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right Actions */}
+          {/* 🔹 Right Actions */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
 
@@ -126,6 +130,7 @@ const Header = () => {
                   Call
                 </a>
               </Button>
+
               <Button variant="whatsapp" size="sm" asChild>
                 <a
                   href={`https://wa.me/${whatsappNumber}`}
@@ -152,7 +157,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* 🔹 Mobile Navigation */}
         {isMenuOpen && (
           <nav className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in">
             <div className="flex flex-col gap-2">
@@ -171,7 +176,7 @@ const Header = () => {
                 </Link>
               ))}
 
-              {/* 📞 Mobile Action Buttons */}
+              {/* 📞 Mobile Buttons */}
               <div className="flex gap-2 mt-4 pt-4 border-t border-border">
                 <Button variant="call" size="sm" className="flex-1" asChild>
                   <a href={`tel:${phoneNumber}`}>
