@@ -1,109 +1,115 @@
-import { Phone, MessageCircle, ChevronRight, Play } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, MessageCircle, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+// Import your background images
+import bg1 from "@/assets/images/image.png";
+import bg2 from "@/assets/images/image1.png";
+import bg3 from "@/assets/images/image2.png";
+
+const images = [bg1, bg2, bg3];
+
 const HeroSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const phoneNumber = "+919691365052";
   const whatsappNumber = "919691365052";
 
+  // Auto-rotate logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000); // Changes image every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-[650px] lg:min-h-[750px] flex items-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+    <section className="relative min-h-[650px] lg:min-h-[850px] flex items-center overflow-hidden">
+      
+      {/* --- AUTO-ROTATING BACKGROUND LAYER --- */}
+      <div className="absolute inset-0 z-0">
+        {/* mode="wait" */}
+        <AnimatePresence >
+          <motion.img
+            key={currentIndex}
+            src={images[currentIndex]}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+        
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px]" />
       </div>
 
       <div className="container relative z-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-6 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-accent/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm border border-accent/20">
-              <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              <span className="text-accent font-medium">Serving Since 2015</span>
+          
+          {/* Content Side */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="space-y-6"
+          >
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 text-sm border border-white/20">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-white font-medium uppercase tracking-wider text-[10px]">Serving Since 2015</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight text-foreground">
-              Your Trusted{" "}
-              <span className="text-gradient">Electronics</span>{" "}
-              Store & Service Center
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-heading leading-tight text-white">
+              Your Trusted <br />
+              <span className="text-blue-400">Electronics</span> Store
             </h1>
             
-            <p className="text-lg text-muted-foreground max-w-xl">
+            <p className="text-lg text-slate-300 max-w-xl">
               Quality products, expert repairs, and trusted service. From mobile phones to home appliances, 
-              we've got you covered with genuine products at the best prices.
+              we've got you covered.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button variant="hero" size="xl" asChild>
+              <Button size="xl" className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8" asChild>
                 <a href={`tel:${phoneNumber}`}>
-                  <Phone className="w-5 h-5" />
+                  <Phone className="w-5 h-5 mr-2" />
                   Call Now
-                  <ChevronRight className="w-5 h-5" />
                 </a>
               </Button>
-              <Button variant="outline" size="xl" asChild>
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=Hello%20Patel%20Electronics%2C%20I%20am%20interested%20in%20your%20products.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp Us
+              <Button variant="outline" size="xl" className="rounded-full border-white/20 text-white hover:bg-white/10" asChild>
+                <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  WhatsApp
                 </a>
               </Button>
             </div>
+          </motion.div>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-8 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold font-heading text-foreground">5000+</div>
-                <div className="text-sm text-muted-foreground">Happy Customers</div>
-              </div>
-              <div className="w-px bg-border" />
-              <div className="text-center">
-                <div className="text-3xl font-bold font-heading text-foreground">10+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
-              </div>
-              <div className="w-px bg-border" />
-              <div className="text-center">
-                <div className="text-3xl font-bold font-heading text-accent">Same Day</div>
-                <div className="text-sm text-muted-foreground">Repair Service</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Hero Visual */}
-          <div className="hidden lg:block relative">
-            <div className="relative z-10 glass-card rounded-3xl p-8">
+          {/* Right Side Visual (Glass Cards) */}
+          <div className="hidden lg:block">
+            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
               <div className="grid grid-cols-2 gap-4">
-                <Link to="/products?category=mobiles" className="group bg-muted/50 hover:bg-muted rounded-2xl p-6 text-center transition-all hover:scale-105">
-                  <div className="text-5xl mb-3">📱</div>
-                  <div className="font-semibold text-foreground">Mobiles</div>
-                  <div className="text-sm text-muted-foreground">50+ Products</div>
-                </Link>
-                <Link to="/products?category=televisions" className="group bg-muted/50 hover:bg-muted rounded-2xl p-6 text-center transition-all hover:scale-105">
-                  <div className="text-5xl mb-3">📺</div>
-                  <div className="font-semibold text-foreground">TVs</div>
-                  <div className="text-sm text-muted-foreground">30+ Products</div>
-                </Link>
-                <Link to="/products?category=laptops" className="group bg-muted/50 hover:bg-muted rounded-2xl p-6 text-center transition-all hover:scale-105">
-                  <div className="text-5xl mb-3">💻</div>
-                  <div className="font-semibold text-foreground">Laptops</div>
-                  <div className="text-sm text-muted-foreground">25+ Products</div>
-                </Link>
-                <Link to="/services" className="group bg-accent/10 hover:bg-accent/20 rounded-2xl p-6 text-center transition-all hover:scale-105 border border-accent/30">
-                  <div className="text-5xl mb-3">🔧</div>
-                  <div className="font-semibold text-accent">Repairs</div>
-                  <div className="text-sm text-muted-foreground">All Brands</div>
-                </Link>
+                {['Mobiles', 'TVs', 'Laptops', 'Repairs'].map((item, i) => (
+                  <div key={item} className="bg-white/5 p-6 rounded-2xl text-center border border-white/5 hover:bg-white/10 transition-colors">
+                    <span className="text-4xl block mb-2">{['📱', '📺', '💻', '🔧'][i]}</span>
+                    <span className="text-white font-semibold">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
-            {/* Decorative elements */}
-            <div className="absolute -top-8 -right-8 w-32 h-32 bg-accent/30 rounded-full blur-2xl" />
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-primary/20 rounded-full blur-2xl" />
           </div>
+          
+        </div>
+
+        {/* --- PROGRESS DOTS --- */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+          {images.map((_, i) => (
+            <div 
+              key={i} 
+              className={`h-1.5 rounded-full transition-all duration-500 ${currentIndex === i ? "w-8 bg-blue-500" : "w-2 bg-white/30"}`} 
+            />
+          ))}
         </div>
       </div>
     </section>
