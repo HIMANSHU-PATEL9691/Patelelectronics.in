@@ -6,51 +6,15 @@ import {
   Mail,
   MapPin,
   Clock,
-  Send,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 const ContactPage = () => {
-  const { toast } = useToast();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
   const phoneNumber = "+919691365052";
   const whatsappNumber = "919691365052";
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const message = encodeURIComponent(
-      `Hello Patel Electronics Kareli!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage: ${formData.message}`
-    );
-
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
-
-    toast({
-      title: "Opening WhatsApp",
-      description: "Please send the message to complete your enquiry.",
-    });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const contactInfo = [
     {
@@ -78,8 +42,8 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: ["patelhimanshu6006@gmail.com"],
-      action: "mailto:patelhimanshu6006@gmail.com",
+      details: ["patelelectronics888@gmail.com"],
+      action: "mailto:patelelectronics888@gmail.com",
     },
     {
       icon: Clock,
@@ -110,15 +74,15 @@ const ContactPage = () => {
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Need help with electronics sales or repair? Call, WhatsApp, or visit
-              our Kareli store.
+              Call, WhatsApp, or visit our Kareli store for electronics sales and repairs.
             </p>
           </div>
         </div>
 
         <div className="container py-12">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
+          {/* Contact Info + Actions */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Contact Info Cards */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <div
@@ -152,69 +116,33 @@ const ContactPage = () => {
               ))}
             </div>
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="bg-card rounded-2xl p-8 border border-border card-shadow">
-                <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
+            {/* Quick Actions */}
+            <div className="bg-card rounded-2xl p-8 border border-border card-shadow flex flex-col justify-center">
+              <h2 className="text-2xl font-bold mb-4">
+                Contact Us Instantly
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                For quick support and enquiries, reach us directly using the options below.
+              </p>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <Input
-                      name="name"
-                      placeholder="Your Name *"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
-                    <Input
-                      name="phone"
-                      placeholder="Phone Number *"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button variant="call" size="lg" className="flex-1" asChild>
+                  <a href={`tel:${phoneNumber}`}>
+                    <Phone className="w-5 h-5" />
+                    Call Now
+                  </a>
+                </Button>
 
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="Email Address"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                    <Input
-                      name="subject"
-                      placeholder="Subject *"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <Textarea
-                    name="message"
-                    placeholder="Your Message *"
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                  />
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button type="submit" variant="whatsapp" size="lg" className="flex-1">
-                      <Send className="w-5 h-5" />
-                      Send via WhatsApp
-                    </Button>
-
-                    <Button type="button" variant="call" size="lg" className="flex-1" asChild>
-                      <a href={`tel:${phoneNumber}`}>
-                        <Phone className="w-5 h-5" />
-                        Call Now
-                      </a>
-                    </Button>
-                  </div>
-                </form>
+                <Button variant="whatsapp" size="lg" className="flex-1" asChild>
+                  <a
+                    href={`https://wa.me/${whatsappNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
