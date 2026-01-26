@@ -1,4 +1,13 @@
-import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import {
+  Phone,
+  MessageCircle,
+  Mail,
+  MapPin,
+  Clock,
+  Facebook,
+  Instagram,
+  Youtube
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -13,8 +22,7 @@ const Footer = () => {
           {/* 🔹 About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              
-              {/* ✅ Logo Image */}
+              {/* Logo */}
               <div className="w-14 h-14 rounded-xl overflow-hidden bg-white flex items-center justify-center shadow-sm border border-border">
                 <img
                   src="/favicon.ico"
@@ -32,6 +40,39 @@ const Footer = () => {
               Your trusted electronics store and service center. Serving customers
               with quality products and reliable repair services for over 10 years.
             </p>
+
+            {/* 🔹 Social Media */}
+            <div className="flex items-center gap-4 mt-5">
+              {/* <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="p-2 rounded-full bg-muted text-foreground hover:bg-accent hover:text-white transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a> */}
+
+              <a
+                href="https://www.instagram.com/patel_electronics_kareli/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="p-2 rounded-full bg-muted text-foreground hover:bg-accent hover:text-white transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+
+              {/* <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="p-2 rounded-full bg-muted text-foreground hover:bg-accent hover:text-white transition-colors"
+              >
+                <Youtube className="w-5 h-5" />
+              </a> */}
+            </div>
           </div>
 
           {/* 🔹 Quick Links */}

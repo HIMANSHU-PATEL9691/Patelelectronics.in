@@ -2,28 +2,55 @@ import { brands } from "@/data/brands";
 
 const BrandsSection = () => {
   return (
-    <section className="py-12 bg-card border-y border-border">
+    <section className="py-14 bg-background border-y border-border">
       <div className="container">
-        <div className="text-center mb-8">
-          <h3 className="text-lg font-semibold text-muted-foreground">
+        
+        {/* Heading */}
+        <div className="text-center mb-10">
+          <h3 className="text-xl font-semibold text-foreground">
             Trusted Brands We Deal In
           </h3>
+          <p className="text-sm text-muted-foreground mt-1">
+            We partner with leading and reliable electronics brands
+          </p>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        {/* Brands */}
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
           {brands.map((brand, index) => (
             <div
               key={brand.name}
-              className="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-all duration-300 hover:scale-110"
-              style={{ animationDelay: `${index * 50}ms` }}
+              className="
+                group
+                w-28 h-20 md:w-32 md:h-24
+                bg-card
+                border border-border
+                rounded-xl
+                flex flex-col items-center justify-center
+                gap-2
+                transition-all duration-300
+                hover:shadow-md hover:border-primary/40
+              "
+              style={{ animationDelay: `${index * 40}ms` }}
             >
+              {/* Logo */}
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="h-8 md:h-10 w-auto object-contain dark:invert dark:brightness-200"
+                className="
+                  max-h-10 md:max-h-12
+                  w-auto
+                  object-contain
+                  transition-all duration-300
+                  group-hover:scale-105
+                "
                 loading="lazy"
               />
-              <span className="text-xs font-medium text-muted-foreground">{brand.name}</span>
+
+              {/* Brand Name */}
+              <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                {brand.name}
+              </span>
             </div>
           ))}
         </div>

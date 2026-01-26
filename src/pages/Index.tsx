@@ -10,8 +10,8 @@ import TrustSection from "@/components/sections/TrustSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 // Newly added imports
-import { TeamSection } from "@/components/sections/TeamSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import  TeamSection  from "@/components/sections/TeamSection";
+import  TestimonialsSection  from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 
 const Index = () => {
